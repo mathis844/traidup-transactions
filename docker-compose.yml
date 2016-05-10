@@ -1,0 +1,26 @@
+mysql:
+    build: ./mysql
+    volumes:
+        - ./data/mysql:/var/lib/mysql
+        - ./app/migrations/v1_0_0__baseline.sql:/tmp/migration.sql
+    ports:
+        - 3307:3306
+    environment: 
+        MYSQL_DATABASE: traidup_db
+        MYSQL_USER: traidup
+        MYSQL_PASSWORD: Ch4nge4Th3W0rld
+        MYSQL_ROOT_PASSWORD: s5H5he/rTYgsgE%tw45
+app:
+    build: ./app
+    volumes:
+        - "./app:/src/app"
+    ports:
+        - 8000:8080
+    links:
+        - mysql
+    environment: 
+        MYSQL_HOST: mysql
+        MYSQL_PORT: 3306
+        MYSQL_DATABASE: traidup_db
+        MYSQL_USER: traidup
+        MYSQL_PASSWORD: Ch4nge4Th3W0rld

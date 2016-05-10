@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker-compose stop
+docker-compose rm
+docker rmi traiduptransactions_mysql
+docker rmi traiduptransactions_app
+rm -rf data/mysql/*

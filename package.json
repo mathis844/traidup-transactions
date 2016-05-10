@@ -1,0 +1,16 @@
+{
+  "name": "traidup-transations",
+  "description": "Transactions Service from TrAidUp",
+  "version": "0.0.1",
+  "author": "Roger Collins <roger@traidup.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": "https://github.com/zulrang/traidup-transations",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mysql": "^2.10.2"
+  }
+}
