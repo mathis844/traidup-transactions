@@ -5,11 +5,8 @@ mysql:
         - ./app/migrations/v1_0_0__baseline.sql:/tmp/migration.sql
     ports:
         - 3307:3306
-    environment: 
-        MYSQL_DATABASE: traidup_db
-        MYSQL_USER: traidup
-        MYSQL_PASSWORD: Ch4nge4Th3W0rld
-        MYSQL_ROOT_PASSWORD: s5H5he/rTYgsgE%tw45
+    env_file:
+        - ./.mysql-env
 app:
     build: ./app
     volumes:
@@ -18,9 +15,5 @@ app:
         - 8000:8080
     links:
         - mysql
-    environment: 
-        MYSQL_HOST: mysql
-        MYSQL_PORT: 3306
-        MYSQL_DATABASE: traidup_db
-        MYSQL_USER: traidup
-        MYSQL_PASSWORD: Ch4nge4Th3W0rld
+    env_file:
+        - ./.mysql-env
